@@ -1,7 +1,7 @@
 'use strict'
 
 const Resources = require('./handlers/resources')
-const Profile = require('./handlers/profile')
+const Profiles = require('./handlers/profiles')
 
 module.exports = [
   {
@@ -11,7 +11,7 @@ module.exports = [
   },
   {
     method: 'POST',
-    path: '/api/resource',
+    path: '/api/resources',
     handler: Resources.create
   },
   {
@@ -41,17 +41,17 @@ module.exports = [
   },
   {
     method: 'POST',
-    path: '/api/profile',
-    handler: Profile.create
+    path: '/api/profiles',
+    handler: Profiles.create
   },
   {
     method: 'GET',
-    path: '/api/profile/{id}',
-    handler: Profile.find
+    path: '/api/profiles/{id}',
+    handler: Profiles.find
   },
   {
     method: 'PUT',
-    path: '/api/profile/{id}',
-    handler: Profile.update
+    path: '/api/profiles/{id}',
+    handler: Profiles.update
   }
 ]
