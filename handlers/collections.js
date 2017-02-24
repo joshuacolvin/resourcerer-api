@@ -9,7 +9,15 @@ exports.findOne = function (request, reply) {
 }
 
 exports.create = function (request, reply) {
-  reply('created')
+  const db = request.mongo.db
+
+  db.collection('collections').insertOne(request.payload, (err, result) => {
+    if (err) {
+      reply(err)
+    }
+    const document = result.ops[0]
+    reply(document)
+  })
 }
 
 exports.createOne = function (request, reply) {
