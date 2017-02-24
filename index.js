@@ -1,3 +1,7 @@
+'use strict'
+
+require('dotenv').config()
+
 const Hapi = require('hapi')
 const server = new Hapi.Server()
 
@@ -6,8 +10,18 @@ server.connection({
   port: process.env.port || 3000
 })
 
-server.route(require('./routes'))
+server.register({
+  register: require('hapi-mongodb'),
+  options: require('./dbConfig')
+}, (err) => {
+  if (err) {
+    console.error(err)
+    throw err
+  }
 
-server.start(function () {
-  console.log('Serving on port: ', server.info.uri)
+  server.route(require('./routes'))
+
+  server.start(function () {
+    console.log(`Serving on port: ${server.info.uri}`)
+  })
 })
