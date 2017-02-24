@@ -1,43 +1,49 @@
 'use strict'
 
-const Resources = require('./handlers/resources')
+const Collections = require('./handlers/collections')
 const Profiles = require('./handlers/profiles')
+const collectionSchema = require('./schemas/collection')
 
 module.exports = [
   {
     method: 'GET',
-    path: '/api/resources',
-    handler: Resources.find
+    path: '/api/collections',
+    handler: Collections.find
   },
   {
     method: 'POST',
-    path: '/api/resources',
-    handler: Resources.create
+    path: '/api/collections',
+    handler: Collections.create,
+    config: {
+      validate: {
+        payload: collectionSchema
+      }
+    }
   },
   {
     method: 'GET',
-    path: '/api/resources/{id}',
-    handler: Resources.findOne
+    path: '/api/collections/{id}',
+    handler: Collections.findOne
   },
   {
     method: 'POST',
-    path: '/api/resources/{id}',
-    handler: Resources.createOne
+    path: '/api/collections/{id}',
+    handler: Collections.createOne
   },
   {
     method: 'PUT',
-    path: '/api/resources/{id}',
-    handler: Resources.updateOne
+    path: '/api/collections/{id}',
+    handler: Collections.updateOne
   },
   {
     method: 'DELETE',
-    path: '/api/resources/{id}',
-    handler: Resources.deleteOne
+    path: '/api/collections/{id}',
+    handler: Collections.deleteOne
   },
   {
     method: 'POST',
-    path: '/api/resources/{id}/heart',
-    handler: Resources.heart
+    path: '/api/collections/{id}/heart',
+    handler: Collections.heart
   },
   {
     method: 'POST',
