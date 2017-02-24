@@ -1,9 +1,14 @@
 'use strict'
 
+// handlers
 const Collections = require('./handlers/collections')
 const Profiles = require('./handlers/profiles')
+const Resources = require('./handlers/resources')
+
+// schemas
 const collectionSchema = require('./schemas/collection')
 
+// routes
 module.exports = [
   {
     method: 'GET',
@@ -26,11 +31,6 @@ module.exports = [
     handler: Collections.findOne
   },
   {
-    method: 'POST',
-    path: '/api/collections/{id}',
-    handler: Collections.createOne
-  },
-  {
     method: 'PUT',
     path: '/api/collections/{id}',
     handler: Collections.updateOne
@@ -44,6 +44,31 @@ module.exports = [
     method: 'POST',
     path: '/api/collections/{id}/heart',
     handler: Collections.heart
+  },
+  {
+    method: 'GET',
+    path: '/api/collections/{id}/resources',
+    handler: Resources.find
+  },
+  {
+    method: 'POST',
+    path: '/api/collections/{id}/resources',
+    handler: Resources.createOne
+  },
+  {
+    method: 'GET',
+    path: '/api/collections/{id}/resources/{resourceid}',
+    handler: Resources.findOne
+  },
+  {
+    method: 'PUT',
+    path: '/api/collections/{id}/resources/{resourceid}',
+    handler: Resources.updateOne
+  },
+  {
+    method: 'DELETE',
+    path: '/api/collections/{id}/resources/{resourceid}',
+    handler: Resources.deleteOne
   },
   {
     method: 'POST',
