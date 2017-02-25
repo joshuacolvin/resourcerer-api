@@ -30,52 +30,52 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/api/collections/{id}',
+    path: '/api/collections/{collectionId}',
     handler: Collections.findOne
   },
   {
     method: 'PUT',
-    path: '/api/collections/{id}',
+    path: '/api/collections/{collectionId}',
     handler: Collections.updateOne
   },
   {
     method: 'DELETE',
-    path: '/api/collections/{id}',
+    path: '/api/collections/{collectionId}',
     handler: Collections.deleteOne
   },
   {
     method: 'GET',
-    path: '/api/collections/{id}/comments',
+    path: '/api/collections/{collectionId}/comments',
     handler: Comments.find
   },
   {
     method: 'POST',
-    path: '/api/collections/{id}/comments',
+    path: '/api/collections/{collectionId}/comments',
     handler: Comments.create
   },
   {
     method: 'PUT',
-    path: '/api/collections/{id}/comments/{commentid}',
+    path: '/api/collections/{collectionId}/comments/{commentId}',
     handler: Comments.updateOne
   },
   {
     method: 'DELETE',
-    path: '/api/collections/{id}/comments/{commentid}',
+    path: '/api/collections/{collectionId}/comments/{commentId}',
     handler: Comments.deleteOne
   },
   {
     method: 'POST',
-    path: '/api/collections/{id}/heart',
+    path: '/api/collections/{collectionId}/heart',
     handler: Collections.heart
   },
   {
     method: 'GET',
-    path: '/api/collections/{id}/resources',
+    path: '/api/collections/{collectionId}/resources',
     handler: Resources.find
   },
   {
     method: 'POST',
-    path: '/api/collections/{id}/resources',
+    path: '/api/collections/{collectionId}/resources',
     handler: Resources.createOne,
     config: {
       validate: {
@@ -85,17 +85,17 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/api/collections/{id}/resources/{resourceid}',
+    path: '/api/collections/{collectionId}/resources/{resourceId}',
     handler: Resources.findOne
   },
   {
     method: 'PUT',
-    path: '/api/collections/{id}/resources/{resourceid}',
+    path: '/api/collections/{collectionId}/resources/{resourceId}',
     handler: Resources.updateOne
   },
   {
     method: 'DELETE',
-    path: '/api/collections/{id}/resources/{resourceid}',
+    path: '/api/collections/{collectionId}/resources/{resourceId}',
     handler: Resources.deleteOne
   },
   {
@@ -105,12 +105,12 @@ module.exports = [
   },
   {
     method: 'GET',
-    path: '/api/profiles/{id}',
+    path: '/api/profiles/{profileId}',
     handler: Profiles.find
   },
   {
     method: 'PUT',
-    path: '/api/profiles/{id}',
+    path: '/api/profiles/{profileId}',
     handler: Profiles.update
   }
 ]
