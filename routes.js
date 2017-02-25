@@ -79,11 +79,6 @@ module.exports = [
     }
   },
   {
-    method: 'GET',
-    path: '/api/collections/{collectionId}/resources/{resourceId}',
-    handler: Resources.findOne
-  },
-  {
     method: 'PUT',
     path: '/api/collections/{collectionId}/resources/{resourceId}',
     handler: Resources.updateOne
