@@ -2,11 +2,13 @@
 
 // handlers
 const Collections = require('./handlers/collections')
+const Comments = require('./handlers/comments')
 const Profiles = require('./handlers/profiles')
 const Resources = require('./handlers/resources')
 
 // schemas
 const collectionSchema = require('./schemas/collection')
+const commentSchema = require('./schemas/comment')
 const resourceSchema = require('./schemas/resources')
 
 // routes
@@ -40,6 +42,26 @@ module.exports = [
     method: 'DELETE',
     path: '/api/collections/{id}',
     handler: Collections.deleteOne
+  },
+  {
+    method: 'GET',
+    path: '/api/collections/{id}/comments',
+    handler: Comments.find
+  },
+  {
+    method: 'POST',
+    path: '/api/collections/{id}/comments',
+    handler: Comments.create
+  },
+  {
+    method: 'PUT',
+    path: '/api/collections/{id}/comments/{commentid}',
+    handler: Comments.updateOne
+  },
+  {
+    method: 'DELETE',
+    path: '/api/collections/{id}/comments/{commentid}',
+    handler: Comments.deleteOne
   },
   {
     method: 'POST',
