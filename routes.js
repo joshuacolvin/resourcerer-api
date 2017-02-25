@@ -9,7 +9,7 @@ const Resources = require('./handlers/resources')
 // schemas
 const collectionSchema = require('./schemas/collection')
 const commentSchema = require('./schemas/comment')
-const resourceSchema = require('./schemas/resources')
+const resourceSchema = require('./schemas/resource')
 
 // routes
 module.exports = [
