@@ -8,5 +8,6 @@ module.exports = Joi.object().keys({
   created: Joi.date().timestamp().default(Date.now()),
   summary: Joi.string(),
   category: Joi.string().required(),
-  url: Joi.string().required()
+  url: Joi.string().required(),
+  collection: Joi.string().required()
 })
