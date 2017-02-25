@@ -9,7 +9,7 @@ module.exports = {
   summary: Joi.string(),
   tags: Joi.array().items(Joi.string()),
   category: Joi.string().required(),
-  date: Joi.date().timestamp().required(),
+  created: Joi.date().timestamp().default(Date.now()),
   resources: Joi.array().items(Joi.string()),
   hearts: Joi.number().default(0),
   comments: Joi.array().items(Joi.string())
