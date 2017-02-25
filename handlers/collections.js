@@ -52,10 +52,32 @@ exports.updateOne = function (request, reply) {
 }
 
 exports.deleteOne = function (request, reply) {
-  reply('delete one')
+  const db = request.mongo.db
+  const ObjectID = request.mongo.ObjectID
+
+  db.collection('collections')
+    .findOneAndDelete({ 
+      _id: new ObjectID(request.params.collectionId) 
+    }, (err, result) => {
+      if (err) {
+        reply(err)
+      }
+      reply(result)
+    })
 }
 
 exports.heart = function (request, reply) {
-  reply('heart')
-}
+  const db = request.mongo.db
+  const ObjectID = request.mongo.ObjectID
 
+  db.collection('collections')
+    .findOneAndUpdate({
+      _id: new ObjectID(request.params.collectionId)},
+      { $inc: { hearts: 1 } }, 
+      (err, result) => {
+        if (err) {
+          reply(err)
+        }
+        reply(result)
+      })
+}
