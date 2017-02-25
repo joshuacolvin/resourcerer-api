@@ -51,7 +51,12 @@ module.exports = [
   {
     method: 'POST',
     path: '/api/collections/{collectionId}/comments',
-    handler: Comments.create
+    handler: Comments.create,
+    config: {
+      validate: {
+        payload: commentSchema
+      }
+    }
   },
   {
     method: 'PUT',
