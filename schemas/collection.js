@@ -2,16 +2,15 @@
 
 const Joi = require('joi')
 
-const resource = require('./resource')
-
 module.exports = {
   title: Joi.string().required(),
   author: Joi.string().required(),
+  authorId: Joi.string().required(),
   summary: Joi.string(),
   tags: Joi.array().items(Joi.string()),
   category: Joi.string().required(),
   date: Joi.date().timestamp().required(),
-  resources: Joi.array().items(resource),
+  resources: Joi.array().items(Joi.string()),
   hearts: Joi.number().required(),
-  comments: Joi.array().items(comment)
+  comments: Joi.array().items(Joi.string())
 }
