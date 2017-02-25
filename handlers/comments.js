@@ -15,7 +15,15 @@ exports.find = function (request, reply) {
 }
 
 exports.create = function (request, reply) {
-  reply('create one')
+  const db = request.mongo.db
+
+  db.collection('comments').insertOne(request.payload, (err, result) => {
+    if (err) {
+      reply(err)
+    }
+    const document = result.ops[0]
+    reply(document)
+  })
 }
 
 exports.updateOne = function (request, reply) {
