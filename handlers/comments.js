@@ -1,7 +1,17 @@
 'use strict'
 
 exports.find = function (request, reply) {
-  reply('find comment')
+  const db = request.mongo.db
+  const ObjectID = request.mongo.ObjectID
+  
+  db.collection('comments')
+    .find({ collection: request.params.collectionId })
+    .toArray((err, result) => {
+      if (err) {
+        reply(err)
+      }
+      reply(result)
+    })
 }
 
 exports.create = function (request, reply) {
