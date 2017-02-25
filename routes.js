@@ -96,7 +96,7 @@ module.exports = [
   {
     method: 'GET',
     path: '/api/profiles/{profileId}',
-    handler: Profiles.find
+    handler: Profiles.findOne
   },
   {
     method: 'PUT',
