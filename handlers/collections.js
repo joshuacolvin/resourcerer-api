@@ -1,11 +1,27 @@
 'use strict'
 
 exports.find = function (request, reply) {
-  reply('found all')
+  const db = request.mongo.db
+
+  db.collection('collections').find().toArray((err, result) => {
+    if (err) {
+      reply(err)
+    }
+    reply(result)
+  })
 }
 
 exports.findOne = function (request, reply) {
-  reply('found one')
+  const db = request.mongo.db
+  const ObjectID = request.mongo.ObjectID
+  
+  db.collection('collections')
+    .findOne({ _id: new ObjectID(request.params.collectionId) }, (err, result) => {
+      if (err) {
+        reply(err)
+      }
+      reply(result)
+    })
 }
 
 exports.create = function (request, reply) {
