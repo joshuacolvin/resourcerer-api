@@ -36,12 +36,19 @@ exports.create = function (request, reply) {
   })
 }
 
-exports.createOne = function (request, reply) {
-  reply('create one')
-}
-
 exports.updateOne = function (request, reply) {
-  reply('update one')
+  const db = request.mongo.db
+  const ObjectID = request.mongo.ObjectID
+
+  db.collection('collections')
+    .findOneAndReplace({ 
+      _id: new ObjectID(request.params.collectionId) 
+    }, request.payload, (err, result) => {
+      if (err) {
+        reply(err)
+      }
+      reply(result)
+    })
 }
 
 exports.deleteOne = function (request, reply) {
