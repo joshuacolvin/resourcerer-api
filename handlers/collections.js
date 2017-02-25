@@ -14,7 +14,7 @@ exports.find = function (request, reply) {
 exports.findOne = function (request, reply) {
   const db = request.mongo.db
   const ObjectID = request.mongo.ObjectID
-  
+
   db.collection('collections')
     .findOne({ _id: new ObjectID(request.params.collectionId) }, (err, result) => {
       if (err) {
@@ -41,8 +41,8 @@ exports.updateOne = function (request, reply) {
   const ObjectID = request.mongo.ObjectID
 
   db.collection('collections')
-    .findOneAndReplace({ 
-      _id: new ObjectID(request.params.collectionId) 
+    .findOneAndReplace({
+      _id: new ObjectID(request.params.collectionId)
     }, request.payload, (err, result) => {
       if (err) {
         reply(err)
@@ -56,8 +56,8 @@ exports.deleteOne = function (request, reply) {
   const ObjectID = request.mongo.ObjectID
 
   db.collection('collections')
-    .findOneAndDelete({ 
-      _id: new ObjectID(request.params.collectionId) 
+    .findOneAndDelete({
+      _id: new ObjectID(request.params.collectionId)
     }, (err, result) => {
       if (err) {
         reply(err)
@@ -72,8 +72,8 @@ exports.heart = function (request, reply) {
 
   db.collection('collections')
     .findOneAndUpdate({
-      _id: new ObjectID(request.params.collectionId)},
-      { $inc: { hearts: 1 } }, 
+    _id: new ObjectID(request.params.collectionId)},
+      { $inc: { hearts: 1 } },
       (err, result) => {
         if (err) {
           reply(err)
