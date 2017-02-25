@@ -7,6 +7,7 @@ const Resources = require('./handlers/resources')
 
 // schemas
 const collectionSchema = require('./schemas/collection')
+const resourceSchema = require('./schemas/resources')
 
 // routes
 module.exports = [
@@ -53,7 +54,12 @@ module.exports = [
   {
     method: 'POST',
     path: '/api/collections/{id}/resources',
-    handler: Resources.createOne
+    handler: Resources.createOne,
+    config: {
+      validate: {
+        payload: resourceSchema
+      }
+    }
   },
   {
     method: 'GET',
