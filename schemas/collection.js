@@ -11,5 +11,7 @@ module.exports = {
   tags: Joi.array().items(Joi.string()),
   category: Joi.string().required(),
   date: Joi.date().timestamp().required(),
-  resources: Joi.array().items(resource)
+  resources: Joi.array().items(resource),
+  hearts: Joi.number().required(),
+  comments: Joi.array().items(comment)
 }
