@@ -25,11 +25,3 @@ exports.create = function (request, reply) {
     reply(document)
   })
 }
-
-exports.updateOne = function (request, reply) {
-  reply('update one')
-}
-
-exports.deleteOne = function (request, reply) {
-  
-}

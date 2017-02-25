@@ -59,16 +59,6 @@ module.exports = [
     }
   },
   {
-    method: 'PUT',
-    path: '/api/collections/{collectionId}/comments/{commentId}',
-    handler: Comments.updateOne
-  },
-  {
-    method: 'DELETE',
-    path: '/api/collections/{collectionId}/comments/{commentId}',
-    handler: Comments.deleteOne
-  },
-  {
     method: 'POST',
     path: '/api/collections/{collectionId}/heart',
     handler: Collections.heart
